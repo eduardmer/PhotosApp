@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listPageFragment">
+
+    <fragment
+        android:id="@+id/listPageFragment"
+        android:name="com.photosapp.ui.ListPageFragment"
+        android:label="ListPageFragment" >
+        <action
+            android:id="@+id/action_listPageFragment_to_imagePageFragment"
+            app:destination="@id/imagePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePageFragment"
+        android:name="com.photosapp.ui.ImagePageFragment"
+        android:label="ImagePageFragment" />
+</navigation>
