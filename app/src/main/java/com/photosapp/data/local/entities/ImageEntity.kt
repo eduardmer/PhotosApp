@@ -1,9 +1,11 @@
 package com.photosapp.data.local.entities
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.photosapp.data.remote.model.Image
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "image")
 data class ImageEntity(
     @PrimaryKey
@@ -13,4 +15,4 @@ data class ImageEntity(
     val height: Int,
     val url: String,
     val download_url: String
-)
+) : Parcelable

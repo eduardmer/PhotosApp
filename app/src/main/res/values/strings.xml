@@ -2,4 +2,12 @@
     <string name="app_name">PhotosApp</string>
     
     <string name="retry">Retry</string>
+    <string name="normal">Normal</string>
+    <string name="blur">Blur</string>
+    <string name="gray_scale">Grayscale</string>
+    <string-array name="images_type">
+        <item>Normal</item>
+        <item>Blur</item>
+        <item>Grayscale</item>
+    </string-array>
 </resources>

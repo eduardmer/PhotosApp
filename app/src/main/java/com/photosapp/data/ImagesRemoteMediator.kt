@@ -49,14 +49,21 @@ class ImagesRemoteMediator @Inject constructor(
         }
         return try {
             val response = service.getImages(page, if (page == 1) state.config.initialLoadSize else state.config.pageSize)
-            val endOfPaginationReached = response.isEmpty()
+            val endOfPaginationReached = response.size < state.config.pageSize
             appDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     remoteKeysDao.clearAll()
                     imageDao.clearAll()
                 }
                 val prevKey = if (page == STARTING_PAGE_INDEX) null else page - 1
-                val nextKey = if (endOfPaginationReached) null else page + response.size / RepositoryImpl.PAGE_SIZE
+                val nextKey = if (endOfPaginationReached)
+                    null
+                else {
+                    if (page == 1)
+                        page + 3
+                    else
+                        page + 1
+                }
                 val keys = response.map {
                     RemoteKeys(it.id, prevKey, nextKey)
                 }
@@ -66,7 +73,7 @@ class ImagesRemoteMediator @Inject constructor(
                 }
                 imageDao.insertAll(items)
             }
-            return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
+            MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (exception: Exception) {
             exception.printStackTrace()
             MediatorResult.Error(exception)

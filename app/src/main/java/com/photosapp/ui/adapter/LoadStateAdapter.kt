@@ -7,7 +7,6 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.photosapp.databinding.ViewLoadStateBinding
 import com.photosapp.ui.view_holder.LoadStateViewHolder
-import javax.xml.transform.ErrorListener
 
 class LoadStateAdapter(private val context: Context, private val retry: () -> Unit) : LoadStateAdapter<LoadStateViewHolder>() {
 

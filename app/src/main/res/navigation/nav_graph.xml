@@ -2,18 +2,29 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listPageFragment">
+    app:startDestination="@id/imagesListFragment">
 
     <fragment
-        android:id="@+id/listPageFragment"
-        android:name="com.photosapp.ui.ListPageFragment"
+        android:id="@+id/imagesListFragment"
+        android:name="com.photosapp.ui.ImagesListFragment"
         android:label="ListPageFragment" >
         <action
-            android:id="@+id/action_listPageFragment_to_imagePageFragment"
-            app:destination="@id/imagePageFragment" />
+            android:id="@+id/action_imagesListFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/imagePageFragment"
-        android:name="com.photosapp.ui.ImagePageFragment"
-        android:label="ImagePageFragment" />
+        android:id="@+id/imageDetailsFragment"
+        android:name="com.photosapp.ui.ImageDetailsFragment"
+        android:label="{author}">
+        <argument
+            android:name="author"
+            app:argType="string"/>
+        <argument
+            android:name="image"
+            app:argType="com.photosapp.data.local.entities.ImageEntity" />
+    </fragment>
 </navigation>

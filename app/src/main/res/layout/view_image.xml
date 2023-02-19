@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="imageId"
+            type="int" />
+        <variable
+            name="imageEffect"
+            type="String" />
+    </data>
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:image_id="@{imageId}"
+        app:image_effect="@{imageEffect}"/>
+
+</layout>

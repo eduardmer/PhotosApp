@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.photosapp.data.local.entities.ImageEntity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_tab_layout"
+                app:tabBackground="@drawable/tab_layout_selector"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextAppearance="?android:attr/textAppearanceSmall"
+                android:layout_margin="10dp"
+                android:layout_weight="3" />
+
+            <TextView
+                android:id="@+id/author_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:drawableStartCompat="@drawable/ic_round_person_24"
+                android:text="@{item.author}"
+                tools:text="TextView" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/width_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    app:drawableStartCompat="@drawable/ic_width"
+                    android:text="@{String.valueOf(item.width)}"
+                    tools:text="TextView" />
+
+                <TextView
+                    android:id="@+id/height_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_round_height_24"
+                    android:text="@{String.valueOf(item.height)}"
+                    tools:text="TextView" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/url_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:autoLink="web"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_round_link_24"
+                android:text="@{item.download_url}"
+                tools:text="https://picsum.photos/id/20/3670/2462" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

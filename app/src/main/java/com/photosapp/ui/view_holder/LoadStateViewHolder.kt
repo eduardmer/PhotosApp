@@ -16,7 +16,6 @@ class LoadStateViewHolder(private val binding: ViewLoadStateBinding) : ViewHolde
             retryButton.setOnClickListener {
                 retry()
             }
-            binding.executePendingBindings()
         }
     }
 

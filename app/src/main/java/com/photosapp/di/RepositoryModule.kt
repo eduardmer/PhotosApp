@@ -1,7 +1,7 @@
 package com.photosapp.di
 
 import com.photosapp.data.RepositoryImpl
-import com.photosapp.domain.Repository
+import com.photosapp.domain.repository.Repository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
